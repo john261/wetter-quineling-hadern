@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#087f8c">
+  <meta name="description" content="Stündliche Radwetterplanung für morgen in München-Hadern mit transparenten Regeln.">
+  <title>Radplanung morgen · Wetter-Quineling</title>
+  <style>
+    :root{color-scheme:light;--ink:#17233a;--muted:#65748b;--paper:#f3f7fb;--card:#fff;--line:#e3eaf2;--teal:#087f8c;--green:#14805d;--amber:#8a6814;--red:#ad4d1c;--shadow:0 14px 38px #192f4d14}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 7% 0%,#e0f5f1 0,transparent 34%),var(--paper);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}.shell{max-width:1040px;margin:auto;padding:22px 16px 32px}
+    .header,.brand,.card-title,.footer{display:flex;align-items:center;justify-content:space-between;gap:12px}.header{margin-bottom:20px}.brand{justify-content:flex-start}.mark{width:44px;height:44px;border-radius:14px;background:linear-gradient(145deg,#6ec8e5,#2580aa);display:grid;place-items:center;color:white;font-size:22px}h1{font-size:22px;line-height:1.2;margin:0}h2{font-size:17px;margin:0}.subtitle,.help{color:var(--muted);font-size:12px;margin-top:4px}.link{color:var(--teal);text-decoration:none;font-size:12px;font-weight:750}.link:hover{text-decoration:underline}
+    .layout{display:grid;grid-template-columns:minmax(280px,.82fr) minmax(0,1.35fr);gap:15px;align-items:start}.card{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:18px;box-shadow:var(--shadow);margin-bottom:15px;min-width:0}.hero{background:linear-gradient(135deg,#0c526d,#087f8c);color:#fff}.eyebrow{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:800}.hero .eyebrow{color:#c7edf0}.hero h2{font-size:19px;margin:5px 0}.hero-copy{font-size:13px;color:#e4f5f5}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:15px}.metric{background:#ffffff16;border:1px solid #ffffff21;border-radius:12px;padding:11px}.metric-label{font-size:10px;color:#d2e9ed}.metric-value{font-size:20px;font-weight:800;margin-top:3px}.metric-value small{font-size:11px;color:#d2e9ed}.metric-note{font-size:10px;color:#d2e9ed;margin-top:2px}.meta{font-size:11px;color:#d6edf0;margin-top:12px}
+    .signal{display:inline-block;border-radius:999px;padding:5px 9px;font-size:10px;font-weight:850;background:#e7f5ef;color:#267352}.signal.caution{background:#fff6df;color:#8a6814}.signal.bad{background:#fff0e8;color:#ad4d1c}.signal.unknown{background:#edf0f5;color:#6d7788}.summary{background:#f4f8fb;border:1px solid var(--line);border-radius:12px;padding:13px;margin-top:12px}.summary h3{font-size:15px;margin:8px 0 4px}.summary p{font-size:12px;color:#536278;margin:0}.window{margin-top:10px;padding:10px 11px;border-radius:10px;background:#eaf6f3;color:#246d59;font-size:12px}.window.none{background:#fff6df;color:#765c17}
+    .rules{display:grid;gap:12px}.rule{display:flex;gap:10px;color:#58677c;font-size:12px;align-items:flex-start}.n{height:24px;width:24px;flex:none;border-radius:8px;background:#e7f5f4;color:var(--teal);display:grid;place-items:center;font-weight:800}.rule strong{display:block;color:var(--ink);font-size:12px;margin:1px 0 2px}.rule-copy{color:var(--muted);font-size:11px;line-height:1.5}.notice{padding:12px;border-radius:11px;background:#f1f6f8;color:#526176;font-size:12px}.error{color:#9f3428}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:11px;margin-top:12px}.forecast{width:100%;min-width:670px;border-collapse:collapse;font-size:12px}.forecast th{position:sticky;top:0;background:#f1f6f8;color:#526176;text-align:left;padding:10px}.forecast td{padding:9px 10px;border-top:1px solid #edf1f5;white-space:nowrap}.forecast tbody tr:nth-child(even){background:#f9fbfc}.forecast td:first-child{font-weight:800}.pill{display:inline-block;border-radius:999px;padding:4px 8px;font-size:10px;font-weight:800;background:#e9f5ef;color:#267352}.pill.caution{background:#fff6df;color:#8a6814}.pill.bad{background:#fff0e8;color:#ad4d1c}.pill.unknown{background:#edf0f5;color:#6d7788}.badge{font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:var(--muted)}.button{border:0;border-radius:9px;padding:9px 12px;background:var(--teal);color:white;font:inherit;font-size:12px;font-weight:750;cursor:pointer}.button:disabled{opacity:.55;cursor:default}.footer{color:#8591a2;font-size:11px;margin-top:15px;flex-wrap:wrap}a{color:var(--teal)}
+    @media(max-width:760px){.layout{grid-template-columns:1fr}.left{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.left .hero{grid-column:1/-1}}
+    @media(max-width:540px){.shell{padding:16px 11px 24px}.header{align-items:flex-start}.header .link{max-width:150px;text-align:right}.left{display:block}.card{padding:14px}.forecast{min-width:630px}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="header"><div class="brand"><div class="mark" aria-hidden="true">🚲</div><div><h1>Radplanung für morgen</h1><div class="subtitle">Stundenweise Wettervorhersage · München-Hadern</div></div></div><a class="link" href="index.html">← Zur heutigen Übersicht</a></header>
+    <div class="layout">
+      <div class="left">
+        <section class="card hero"><div class="eyebrow" id="tomorrowLabel">VORHERSAGE FÜR MORGEN</div><h2 id="dayTitle">Wetter wird geladen …</h2><div class="hero-copy" id="daySummary">Open-Meteo wird abgefragt.</div><div class="metrics"><div class="metric"><div class="metric-label">Max. Wind / Böe</div><div class="metric-value"><span id="windMax">—</span><small id="windUnit"> km/h</small></div></div><div class="metric"><div class="metric-label">Temperatur tagsüber</div><div class="metric-value"><span id="tempRange">—</span><small id="tempUnit"> °C</small></div></div><div class="metric"><div class="metric-label">Höchste Regenchance</div><div class="metric-value"><span id="probMax">—</span><small id="probUnit"> %</small></div></div><div class="metric"><div class="metric-label">Nasseste Stunde</div><div class="metric-value"><span id="mmMax">—</span><small id="mmUnit"> mm</small></div></div></div><div class="meta" id="meta">—</div></section>
+        <section class="card"><div class="card-title"><h2>Quineling-Regeln</h2><span class="eyebrow">TRANSPARENT</span></div><div class="rules"><div class="rule"><span class="n">1</span><div><strong>Regen einbeziehen</strong><div class="rule-copy">IF Regenwahrscheinlichkeit ≥ 50 % ODER Niederschlag ≥ 0,1 mm je Stunde, THEN Regenhinweis für diese Stunde.</div></div></div><div class="rule"><span class="n">2</span><div><strong>Wind beachten</strong><div class="rule-copy">IF Wind ≥ 25 km/h ODER Böen ≥ 40 km/h, THEN als windig markieren.</div></div></div><div class="rule"><span class="n">3</span><div><strong>Unangenehme Bedingungen markieren</strong><div class="rule-copy">IF Regenwahrscheinlichkeit ≥ 70 % ODER Niederschlag ≥ 1 mm ODER Wind ≥ 35 km/h ODER Böen ≥ 55 km/h, THEN „Eher ungemütlich“.</div></div></div><div class="rule"><span class="n">4</span><div><strong>Temperatur als Kontext</strong><div class="rule-copy">IF gefühlte Temperatur unter 5 °C, THEN Hinweis „kalt – warme Kleidung einplanen“. Temperatur ändert die Regen-/Windampel nicht. Fehlen Regenwahrscheinlichkeit, Niederschlagsmenge oder Windwerte, THEN keine günstige Einschätzung ausgeben.</div></div></div></div></section>
+        <section class="card"><div class="card-title"><h2>Was bedeutet die Einschätzung?</h2></div><div class="rule-copy">„Günstig“ bedeutet nur: Nach den angezeigten Stundenwerten wird weder ein deutlicher Regen- noch ein starker Windhinweis erkannt. Es ist keine Sicherheitsbewertung und keine Garantie. Vorhersagen für morgen können sich ändern; für eine wichtige Fahrt kurz vorher erneut aktualisieren.</div></section>
+      </div>
+      <div class="right">
+        <section class="card"><div class="card-title"><div><h2>Stundenübersicht morgen</h2><div class="help" id="dateLabel">Wird geladen …</div></div><span class="badge" id="source">—</span></div><div id="message" class="notice">Stündliche Vorhersage wird geladen …</div><div class="table-wrap" id="tableWrap" hidden><table class="forecast"><thead><tr><th>Uhrzeit</th><th>Temperatur</th><th>Gefühlt</th><th>Regenchance</th><th>Niederschlag</th><th>Wind / Böen</th><th>Radwetter nach Regel</th></tr></thead><tbody id="rows"></tbody></table></div><div class="help">Werte sind stündliche Modellvorhersagen für München-Hadern, keine Messungen direkt an der Straße. Niederschlag in mm bezieht sich auf die jeweilige Stunde.</div></section>
+        <section class="card"><div class="card-title"><h2>Aktualisierung</h2><button id="reload" class="button">Jetzt aktualisieren</button></div><div id="updated" class="help">Noch nicht geladen.</div><div class="help">Bei geöffneter Seite aktualisiert der Quineling alle 10 Minuten. Er läuft nicht als Hintergrunddienst.</div></section>
+      </div>
+    </div>
+    <footer class="footer"><span>Datenquelle: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · kostenlos, ohne API-Key</span><a class="link" href="radar.html">Radar & Kurzfristtrend ↗</a></footer>
+  </main>
+<script>
+(() => {
+  "use strict";
+  const LAT=48.1147,LON=11.4822,TZ="Europe/Berlin",STORE_PREFIX="wetter-quineling-bike-v1-";
+  const $=id=>document.getElementById(id);
+  let lastDate=null;
+  function berlinParts(date=new Date()){return Object.fromEntries(new Intl.DateTimeFormat("en-CA",{timeZone:TZ,year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(date).map(x=>[x.type,x.value]))}
+  function tomorrowDate(){const p=berlinParts(),d=new Date(Date.UTC(Number(p.year),Number(p.month)-1,Number(p.day)+1));return `${d.getUTCFullYear()}-${String(d.getUTCMonth()+1).padStart(2,"0")}-${String(d.getUTCDate()).padStart(2,"0")}`}
+  function fmtDate(date){return new Intl.DateTimeFormat("de-DE",{timeZone:TZ,weekday:"long",day:"numeric",month:"long",year:"numeric"}).format(new Date(`${date}T12:00:00Z`))}
+  function num(array,index){const value=Array.isArray(array)?array[index]:null;return value==null||typeof value==="boolean"||!Number.isFinite(Number(value))?null:Number(value)}
+  function series(object,names){for(const name of names){if(Array.isArray(object?.[name]))return object[name]}return null}
+  function setMessage(text,error=false){$("message").textContent=text;$("message").classList.toggle("error",error)}
+  function assessment(row){
+    const rainKnown=row.probability!=null&&row.mm!=null,windKnown=row.wind!=null||row.gust!=null;
+    if(!rainKnown||!windKnown)return{label:"Daten fehlen",className:"unknown",good:false,bad:false};
+    const rain=(row.probability!=null&&row.probability>=50)||(row.mm!=null&&row.mm>=.1);
+    const wind=(row.wind!=null&&row.wind>=25)||(row.gust!=null&&row.gust>=40);
+    const bad=(row.probability!=null&&row.probability>=70)||(row.mm!=null&&row.mm>=1)||(row.wind!=null&&row.wind>=35)||(row.gust!=null&&row.gust>=55);
+    if(bad)return{label:"Eher ungemütlich",className:"bad",good:false,bad:true};
+    if(rain||wind)return{label:"Mit Schutz planbar",className:"caution",good:false,bad:false};
+    return{label:"Günstig nach Regeln",className:"",good:true,bad:false};
+  }
+  function temperatureText(value){return value==null?"—":`${value.toFixed(1).replace(".",",")} °C`}
+  function render(rows,date,stamp,source){
+    if(date!==tomorrowDate()){setMessage("Der gespeicherte Forecast gehört nicht mehr zu morgen. Lade aktuelle Daten …",true);return}
+    lastDate=date;$("dateLabel").textContent=fmtDate(date);$("source").textContent=source;
+    const body=$("rows");body.replaceChildren();
+    for(const row of rows){
+      const verdict=assessment(row),tr=document.createElement("tr");
+      const values=[row.hour,temperatureText(row.temperature),temperatureText(row.feels),row.probability==null?"—":`${Math.round(row.probability)} %`,row.mm==null?"—":`${row.mm.toFixed(1).replace(".",",")} mm`,`${row.wind==null?"—":`${Math.round(row.wind)} km/h`} / ${row.gust==null?"—":`${Math.round(row.gust)} km/h`}`];
+      for(const value of values){const td=document.createElement("td");td.textContent=value;tr.appendChild(td)}
+      const td=document.createElement("td"),pill=document.createElement("span");pill.className=`pill ${verdict.className}`;pill.textContent=verdict.label;td.appendChild(pill);tr.appendChild(td);body.appendChild(tr);
+    }
+    $("tableWrap").hidden=rows.length===0;setMessage(rows.length?"Stundenwerte für morgen erfolgreich geladen.":"Für morgen wurden keine Stundenwerte empfangen.",!rows.length);
+    const daytime=rows.filter(row=>row.hour>= "06:00"&&row.hour<="22:00"),rated=daytime.map(row=>({row,...assessment(row)})).filter(x=>x.label!=="Daten fehlen"),good=rated.filter(x=>x.good),bad=rated.filter(x=>x.bad);
+    const temps=daytime.map(x=>x.temperature).filter(x=>x!=null),feels=daytime.map(x=>x.feels).filter(x=>x!=null),probs=daytime.map(x=>x.probability).filter(x=>x!=null),amounts=daytime.map(x=>x.mm).filter(x=>x!=null),winds=daytime.flatMap(x=>[x.wind,x.gust]).filter(x=>x!=null);
+    $("tempRange").textContent=temps.length?`${Math.min(...temps).toFixed(0)} bis ${Math.max(...temps).toFixed(0)}`:"—";$("tempUnit").textContent=temps.length?" °C":"";
+    $("windMax").textContent=winds.length?Math.round(Math.max(...winds)):"—";$("windUnit").textContent=winds.length?" km/h":"";
+    $("probMax").textContent=probs.length?Math.round(Math.max(...probs)):"—";$("probUnit").textContent=probs.length?" %":"";
+    $("mmMax").textContent=amounts.length?Math.max(...amounts).toFixed(1).replace(".",","):"—";$("mmUnit").textContent=amounts.length?" mm":"";
+    let bestWindow=[],currentWindow=[];for(const row of daytime){if(assessment(row).good){if(currentWindow.length&&Number(row.hour.slice(0,2))!==Number(currentWindow[currentWindow.length-1].hour.slice(0,2))+1)currentWindow=[];currentWindow.push(row);if(currentWindow.length>bestWindow.length)bestWindow=currentWindow}else currentWindow=[]}
+    const worst=daytime.map(row=>assessment(row)).some(x=>x.label==="Daten fehlen");
+    const title=$("dayTitle"),summary=$("daySummary");
+    if(!rated.length||worst&&rated.length<Math.ceil(daytime.length/2)){title.textContent="Noch keine verlässliche Einschätzung";summary.textContent="Für mehrere wichtige Stunden fehlen Regen- oder Windwerte. Bitte später erneut aktualisieren.";}
+    else if(bad.length>=Math.ceil(rated.length/2)){title.textContent="Morgen eher ungemütlich";summary.textContent=`In ${bad.length} von ${rated.length} bewerteten Tagesstunden zeigt das Regelmodell deutlichen Regen oder starken Wind.`}
+    else if(bestWindow.length>=2){title.textContent="Gutes Radfahr-Zeitfenster möglich";summary.textContent=`Zwischen ${bestWindow[0].hour} und ${String((Number(bestWindow[bestWindow.length-1].hour.slice(0,2))+1)%24).padStart(2,"0")}:00 Uhr liegen ${bestWindow.length} aufeinanderfolgende günstige Stunden. Einzelne Stunden außerhalb können nass oder windig sein.`}
+    else{title.textContent="Mit Vorbereitung planbar";summary.textContent="Das Modell zeigt kein durchgehend günstiges Zeitfenster. Regen- und Windhinweise stehen stundenweise in der Tabelle."}
+    const badge=$("dayTitle").closest(".hero").querySelector(".eyebrow");badge.textContent=`VORHERSAGE · ${fmtDate(date).toLocaleUpperCase("de-DE")}`;
+    const windowText=bestWindow.length>=2?`Bestes günstiges Zeitfenster: ${bestWindow[0].hour} bis ${String((Number(bestWindow[bestWindow.length-1].hour.slice(0,2))+1)%24).padStart(2,"0")}:00 Uhr (${bestWindow.length} Stunden).`:bestWindow.length===1?`Eine günstige Einzelstunde: ${bestWindow[0].hour} Uhr.`:"Kein günstiges Zeitfenster nach den Regeln erkannt.";
+    const cold=feels.length&&Math.min(...feels)<5?"Gefühlt unter 5 °C: warme Kleidung einplanen.":"";
+    $("meta").textContent=`Ausgewertete Tagesstunden: ${rated.length} von ${daytime.length}. ${worst?"Für einzelne Stunden fehlen Werte.":"Regen- und Windwerte vollständig."} ${cold}`.trim();
+    const box=document.createElement("div");box.className=`window${bestWindow.length?"":" none"}`;box.textContent=windowText;
+    const old=$("window");if(old)old.remove();box.id="window";summary.after(box);
+    const retrieved=new Date(stamp||Date.now());$("updated").textContent=`Letzter erfolgreicher Abruf: ${retrieved.toLocaleTimeString("de-DE",{hour:"2-digit",minute:"2-digit",second:"2-digit"})}`;
+  }
+  function decode(doc,date){
+    const hourly=doc?.hourly||doc?.data?.hourly;if(!hourly)throw new Error("Stundenwerte fehlen in der API-Antwort.");
+    const times=series(hourly,["time","times","timestamps"]);if(!times)throw new Error("Zeitreihe fehlt in der API-Antwort.");
+    const probs=series(hourly,["precipitation_probability","precipitationProbability","rain_probability"]),amounts=series(hourly,["precipitation","precipitation_mm","rain"]),temps=series(hourly,["temperature_2m","temperature","temp_c"]),feels=series(hourly,["apparent_temperature","feels_like","apparentTemperature"]),winds=series(hourly,["wind_speed_10m","wind_speed","windSpeed"]),gusts=series(hourly,["wind_gusts_10m","wind_gusts","windGusts"]);
+    const rows=[];for(let i=0;i<times.length;i++){if(typeof times[i]!=="string"||!times[i].startsWith(`${date}T`))continue;const hour=times[i].slice(11,16);if(!/^\d{2}:00$/.test(hour))continue;const row={hour,probability:num(probs,i),mm:num(amounts,i),temperature:num(temps,i),feels:num(feels,i),wind:num(winds,i),gust:num(gusts,i)};if(row.probability!=null&&(row.probability<0||row.probability>100)||row.mm!=null&&row.mm<0||row.wind!=null&&row.wind<0||row.gust!=null&&row.gust<0)continue;if(Object.values(row).some(value=>value!=null))rows.push(row)}
+    if(!rows.length)throw new Error("Keine Stundenwerte für morgen gefunden.");return rows;
+  }
+  async function load(){
+    const date=tomorrowDate();$("dateLabel").textContent=fmtDate(date);$("reload").disabled=true;setMessage("Open-Meteo wird abgefragt …");
+    try{const query=new URLSearchParams({latitude:String(LAT),longitude:String(LON),hourly:"precipitation_probability,precipitation,temperature_2m,apparent_temperature,wind_speed_10m,wind_gusts_10m",timezone:TZ,forecast_days:"2",wind_speed_unit:"kmh"});const response=await fetch(`https://api.open-meteo.com/v1/forecast?${query}`,{cache:"no-store"});if(!response.ok)throw new Error(`Open-Meteo antwortet mit HTTP ${response.status}.`);const rows=decode(await response.json(),date),record={date,stamp:new Date().toISOString(),rows};try{localStorage.setItem(STORE_PREFIX+date,JSON.stringify(record))}catch{}render(rows,date,record.stamp,"LIVE · OPEN-METEO");}
+    catch(error){let cached=null;try{cached=JSON.parse(localStorage.getItem(STORE_PREFIX+date)||"null")}catch{}if(cached?.date===date&&Array.isArray(cached.rows)){render(cached.rows,date,cached.stamp,"LETZTER ABRUF");setMessage(`${error.message} Angezeigt wird der letzte erfolgreiche Abruf.`,true)}else{setMessage(`${error.message} Bitte später erneut versuchen.`,true);$("source").textContent="API-FEHLER";$("dayTitle").textContent="Vorhersage gerade nicht verfügbar";}}
+    finally{$("reload").disabled=false;}
+  }
+  $("reload").addEventListener("click",load);load();setInterval(()=>{if(!document.hidden)load()},10*60*1000);document.addEventListener("visibilitychange",()=>{if(!document.hidden&&lastDate!==tomorrowDate())load()});
+})();
+</script>
+</body>
+</html>
